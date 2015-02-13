@@ -1,0 +1,56 @@
+{% extends "template.html" %}
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+<div class="row panel">
+    <section>
+        <div id="link" class="panel">
+            <div class="panel" id="links"><h2 id="length">{{ length }}</h2> shorten links</div>
+            <div class="panel" id="visitedLinks"><h2 id="numberVisited">{{ cpt }}</h2> visited links</div>
+        </div>
+        <form method="post" action="/" onsubmit="return shorten()">
+            <input type="url" placeholder="Enter URL" id="url"/><br/>
+            <input class="button" type="submit" value="Raccourcir"/>
+        </form>
+        <article id="list">
+			<br/>
+        </article>
+    </section>
+</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port); 
+
+        var cpt = 0;
+        var length = 0;
+
+        socket.on('docs', function(data) {
+            cpt += data.cpt;
+            document.getElementById('list').innerHTML += '<div class="elem">' + data.url + ' -> <form method="post" action="' + data.shortenUrl + '" onsubmit="return count(\'' + data.url + '\')"><input class="button" type="submit" value="' + data.shortenUrl +'"/></form></div>';
+        });
+
+        socket.on('length', function(data) {
+            length = data.length;
+        });
+
+        socket.on('message', function(data) {
+            document.getElementById('list').innerHTML += '<div class="elem">' + data.url + ' -> <form method="post" action="' + data.shortenUrl + '" onsubmit="return count(\'' + data.url + '\')"><input class="button" type="submit" value="' + data.shortenUrl +'"/></form></div>';
+            document.getElementById('length').innerHTML = ++length;
+        });
+
+        function shorten() {
+            var url = document.getElementById('url');
+            if (url.value != '') {
+                socket.emit('message', url.value);
+            }
+            url.value = '';
+            return false;
+        };
+
+        function count(elem) {
+            document.getElementById('numberVisited').innerHTML = ++cpt;
+            socket.emit('count', elem);
+            return true;
+        };
+    </script>
+{% endblock %}

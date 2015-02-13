@@ -1,0 +1,47 @@
+{% extends "template.html" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="row panel">
+    <section>
+        <h1>Simple URL Shortner</h1>
+        
+        <article>
+            <form method="post" action="/" onsubmit="return shorten()">
+                <input type="url" placeholder="Enter URL" id="url"/><br/>
+                <input class="button" type="submit" value="Raccourcir"/>
+            </form>
+        </article>
+        <article class="panel" id="result">
+        </article>
+    </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect(window.location.protocol + '//' + window.location.hostname + ':' + window.location.port); 
+               
+        socket.on('message', function(data) {
+            addShortenUrl(data.url, data.shortenUrl);
+
+        });
+
+        function shorten() {
+            var url = document.getElementById('url');
+            if (url.value != '') {
+                socket.emit('message', url.value);
+            }
+            url.value = '';
+            return false;
+        };
+
+        function addShortenUrl(url, shortenUrl) {
+            document.getElementById('result').innerHTML += '<div class="elem">' + url + '  -> <form method="post" action="' + shortenUrl + '" onsubmit="return count(\'' + url + '\')"><input class="button" type="submit" value="' + shortenUrl +'"/></form></div>';
+        };
+
+        function count(elem) {
+            socket.emit('count', elem);
+            return true;
+        };
+    </script>
+{% endblock %}
