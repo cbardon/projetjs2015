@@ -9,10 +9,10 @@
             <div class="panel" id="visitedLinks"><h2 id="numberVisited">{{ cpt }}</h2> visited links</div>
         </div>
         <form method="post" action="/" onsubmit="return shorten()">
-            <input type="url" placeholder="Enter URL" id="url"/><br/>
+            <input type="url" placeholder="Enter your URL here" id="url"/><br/>
             <input class="button" type="submit" value="Raccourcir"/>
         </form>
-<h2>Your shortner URL here :
+<h2>Your shortner URL here : </h2>
         <article id="list">
 			<br/>
         </article>

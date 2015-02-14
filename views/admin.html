@@ -12,7 +12,7 @@
             <input type="url" placeholder="Enter your URL here" id="url"/><br/>
             <input class="button" type="submit" value="Raccourcir"/>
         </form>
-<h2>Your shortner URL here :
+<h2>Your shortner URL here : </h2>
         <article id="list">
 			<br/>
         </article>
@@ -27,7 +27,7 @@
 
         socket.on('docs', function(data) {
             cpt += data.cpt;
-            document.getElementById('list').innerHTML += '<div class="elem">' + data.url + ' -> <form method="post" action="' + data.shortenUrl + '" onsubmit="return count(\'' + data.url + '\')"><input class="button" type="submit" value="' + data.shortenUrl +'"/></form></div>';
+            document.getElementById('list').innerHTML += '<div class="panel elem">' + data.url + ' -> <form method="post" action="' + data.shortenUrl + '" onsubmit="return count(\'' + data.url + '\')"><input class="button" type="submit" value="' + data.shortenUrl +'"/></form></div>';
         });
 
         socket.on('length', function(data) {

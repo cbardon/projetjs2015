@@ -13,7 +13,7 @@
             </form>
         </article>
 	<h2>Your shortner URL here :
-        <article class="panel" id="result">
+        <article  id="result">
         </article>
     </section>
     </div>
@@ -37,7 +37,7 @@
         };
 
         function addShortenUrl(url, shortenUrl) {
-            document.getElementById('result').innerHTML += '<div class="elem">' + url + '  -> <form method="post" action="' + shortenUrl + '" onsubmit="return count(\'' + url + '\')"><input class="button" type="submit" value="' + shortenUrl +'"/></form></div>';
+            document.getElementById('result').innerHTML += '<div class="panel elem">' + url + '  -> <form method="post" action="' + shortenUrl + '" onsubmit="return count(\'' + url + '\')"><input class="button" type="submit" value="' + shortenUrl +'"/></form></div>';
         };
 
         function count(elem) {

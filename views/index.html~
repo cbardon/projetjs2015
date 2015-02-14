@@ -8,12 +8,12 @@
         
         <article>
             <form method="post" action="/" onsubmit="return shorten()">
-                <input type="url" placeholder="Enter your URL" id="url"/><br/>
+                <input type="url" placeholder="Enter your URL here" id="url"/><br/>
                 <input class="button" type="submit" value="Raccourcir"/>
             </form>
         </article>
 	<h2>Your shortner URL here :
-        <article class="panel" id="result">
+        <article  id="result">
         </article>
     </section>
     </div>
