@@ -10,9 +10,8 @@
 <tr><td>{{ length }}</td><td>{{ cpt }}</td> </tr>
 </table>
 </div>
-</div>
-<!--<div class="row panel">
-    <section>
+<div class="row panel">
+   <!-- <section>
         <div id="link" class="panel">
             <div class="panel" id="links"><h2 id="length">{{ length }}</h2> shorten links</div>
             <div class="panel" id="visitedLinks"><h2 id="numberVisited">{{ cpt }}</h2> visited links</div>
