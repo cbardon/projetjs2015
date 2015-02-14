@@ -18,7 +18,7 @@ nunjucks.configure('views', {
     express: app
 });
 
-mongoose.connect('mongodb://donb15:admin15@ds037581.mongolab.com:37581/short_url/short_url', function (error) {
+mongoose.connect('mongodb://donb15:admin15@ds037581.mongolab.com:37581/short_url', function (error) {
     if (error) {
         console.log(error);
     }
