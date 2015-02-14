@@ -3,21 +3,19 @@
 
 {% block body %}
 
-<div class="row">
-<div class="large-14">
+<div class="row panel">
 <table>
 <th>Shorten links</th>
 <th>Visited links</th>
 <tr><td>{{ length }}</td><td>{{ cpt }}</td> </tr>
 </table>
 </div>
-</div>
-<div class="row panel">
+<!--<div class="row panel">
     <section>
         <div id="link" class="panel">
             <div class="panel" id="links"><h2 id="length">{{ length }}</h2> shorten links</div>
             <div class="panel" id="visitedLinks"><h2 id="numberVisited">{{ cpt }}</h2> visited links</div>
-        </div>
+        </div>-->
         <form method="post" action="/" onsubmit="return shorten()">
             <input type="url" placeholder="Enter your URL here" id="url"/><br/>
             <input class="button" type="submit" value="Raccourcir"/>
