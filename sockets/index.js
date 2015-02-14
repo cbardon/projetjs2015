@@ -6,7 +6,7 @@ module.exports = function (io) {
 		console.log('-- Socket connectée --');
 		
 		socket.on('message', function (message) {
-			shorturl(message, 'projetjs2015.at', function (result) {
+			shorturl(message, 'JSapp.at', function (result) {
 				socket.emit('message', {url: message, shortenUrl: result});
 				var shorten = new UrlShortner({
 					cpt: 0,
