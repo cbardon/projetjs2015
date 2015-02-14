@@ -1,12 +1,7 @@
 {
-	"name": "url-shortner",
-	"version": "0.0.1",
+	"name": "Shortner-url",
+	"version": "1.0.0",
 	"description": "An application to shorten url",
-	"keywords": [
-		"url-shortner",
-		"application"
-	],
-	"license": "MIT",
 	"contributors": [{
 		"name": "BARDON Clément"
 		
