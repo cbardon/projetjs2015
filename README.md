@@ -1,6 +1,3 @@
-# UrlShortener
-This JavaScript Project consists in a URL shortner.
+This projet was proposed by Mr MUETTON Julien and developed by BARDON Clément and MANCHON Kevin form IUT CLERMONT-FERRAND
 
-Realised by Yannis RICHARD and Nicolas BASCON
-
-Based on http://edu.muetton.me/practicals/06-project.html written by Julien Muetton
+We developed it with Node JS , Socket.io. And we push it on HEROKU.
