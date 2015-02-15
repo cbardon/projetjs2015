@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"description": "An application to shorten url",
 	"contributors": [{
-		"name": "BARDON Clément"
+		"name": "BARDON Clément",
+		"name" : "MANCHON Kevin"
 		
 	}],
 	"engine": {
